@@ -62,7 +62,7 @@
 
   @form-label-color: inherit;
   @wm-calendar-header-color: #adadad;
-  @wm-calendar-text-color: #adadad;
+  @wm-calendar-text-color: #ccc;
   @wm-datepicker-text-color: #000;
   @wm-datepicker-header-bg: #128ff2;
   @wm-datepicker-btn-hover-bg: #f0f0f0;
@@ -157,7 +157,7 @@
     }
   }
   //navigation
-  .nav-tabs {
+  .nav-tabs, .nav-justified {
     border-bottom-color: @nav-tabs-border-color;
     background-color: @nav-tabs-bg;
     > li {
@@ -534,7 +534,8 @@
             font-size: 1.143em;
           }
           .badge {
-            top: 1.2em !important;
+            right: @padding-large-horizontal;
+            top: @padding-large-horizontal;
             padding: 4px 6px;
           }
         }
@@ -571,44 +572,6 @@
             padding: 1.333em;
           }
         }
-      }
-    }
-  }
-
-  /****nav widget****/
-  .app-nav {
-    &.nav-pills, &.nav-justified {
-      .app-nav-item {
-        .app-menu {
-          .dropdown-toggle {
-            padding: @padding-base-horizontal;
-          }
-          &:hover {
-            color: @nav-pills-active-link-hover-bg;
-            background-color: @nav-link-hover-bg;
-          }
-        }
-        &.active {
-          a, .app-menu {
-            &:active, &.hover, &:active:hover {
-              color: @navbar-default-link-active-color;
-              background-color: @nav-pills-active-link-hover-bg;
-            }
-            &.open {
-              .dropdown-toggle {
-                color: @nav-pills-active-link-hover-color;
-                background-color: @nav-pills-active-link-hover-bg;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  .nav-justified {
-    .app-nav-item {
-      .app-menu {
-        text-align: center;
       }
     }
   }
@@ -710,6 +673,9 @@
       opacity: 0;
       z-index: -1;
       margin: 3px 0 !important;
+      &:focus + span.caption:before {
+        outline: 1px solid @brand-primary;
+      }
     }
     label {
       padding-left: @padding-base-horizontal;
@@ -734,11 +700,6 @@
         -webkit-transition: all 0.3s ease;
         transition: all 0.3s ease;
         background: transparent;
-      }
-    }
-    label input:focus {
-      + .caption:before {
-        border: 1px solid #1794ef !important;
       }
     }
   }
@@ -840,12 +801,10 @@
       color: @form-label-color;
     }
     //action buttons in the form
-    .panel-footer.form-action {
+    .form-action {
       background-color: inherit;
       padding: @padding-base-horizontal;
       border-top: 1px solid @panel-inner-border;
-    }
-    .form-action {
       .btn {
         margin: 0 0.333em;
         border-radius: @border-radius-base;
@@ -892,11 +851,9 @@
       margin-bottom: 1em;
       font-weight: bold;
     }
-    .panel-footer.form-action {
+    .form-action {
       padding: @padding-base-horizontal;
       border-top: 1px solid @panel-inner-border;
-    }
-    .form-action {
       .btn {
         margin: 0 0.333em;
         border-radius: @border-radius-base;
@@ -942,6 +899,7 @@
         th {
           .header-data {
             text-transform: uppercase;
+            color: @kbd-bg;
           }
           .sort-buttons-container {
             .sort-button {
@@ -1002,14 +960,19 @@
 
     .app-datagrid {
       .app-datagrid-cell {
-        &.cell-editing:not(.checkbox-widget) {
+        &.cell-editing {
            padding: @padding-small-vertical @padding-small-horizontal;
+          .app-checkbox {
+            margin: 3px -4px;
+          }
         }
       }
     }
     .cell-editing {
       input {
+        border-bottom: 1px solid darken(@table-border-color, 10%);
         background-color: @table-bg;
+        background-image: none;
       }
     }
   }
@@ -1583,14 +1546,16 @@
     }
     .fc-body {
       .fc-row {
-        min-height: 5em;
+        min-height: 3em;
+        .fc-content-skeleton {
+          padding: .5em 0 2.2em .5em;
+          color: @wm-calendar-text-color;
+          font-size: 1.52em;
+          td {
+            text-align: left;
+          }
+        }
       }
-    }
-    .fc-day-number {
-      padding: .5em .3em;
-      color: @wm-calendar-text-color;
-      font-size: 1.52em;
-      text-align: left;
     }
   }
 /*********************************************************************************************************************************************/

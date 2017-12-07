@@ -11,6 +11,14 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
+  "name" : "Main_Copy_Copy2",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "NEwduplicatepage",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "footer",
   "type" : "FOOTER",
   "params" : [ ]
@@ -25,6 +33,10 @@
 }, {
   "name" : "rightnav",
   "type" : "RIGHTNAV",
+  "params" : [ ]
+}, {
+  "name" : "testnewpage",
+  "type" : "PAGE",
   "params" : [ ]
 }, {
   "name" : "topnav",
